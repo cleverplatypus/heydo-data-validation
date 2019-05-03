@@ -1,0 +1,11 @@
+{
+  "name": "heydo-data-validation",
+  "version": "1.0.0",
+  "description": "Data validators for heydo.it",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicola Dal Pont",
+  "license": "ISC"
+}
