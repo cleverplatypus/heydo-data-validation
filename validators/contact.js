@@ -7,6 +7,7 @@ class EmailValidator extends DataValidator {
                 /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i; //jshint ignore:line
             if (!inEmail) {
                 resolve({ valid: false });
+                return;
             }
             if (emailRE.test(inEmail)) {
                 this._service(inEmail)
@@ -19,8 +20,9 @@ class EmailValidator extends DataValidator {
                     });
 
                 resolve({ valid: false, loading: true });
+            } else {
+                resolve({ valid: false, error: ['invalid_email'] });
             }
-            resolve({ valid: false, error: ['invalid_email'] });
         });
 
     }

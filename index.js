@@ -1,12 +1,13 @@
-import DataValidator from './validators/DataValidator';
+
 import {email, phone_number} from './validators/contact';
 import {person_name} from './validators/person-data';
-import {postal_code, address, state_province} from './validators/location';
+import {postal_code, street, state_province, city} from './validators/location';
 import password from './validators/password';
 import {tax_number, invoicing_code} from './validators/fiscal';
 
 const validators = {
-	email
+	email,
+	city,
 	person_name,
 	nickname,
 	postal_code,
@@ -18,6 +19,9 @@ const validators = {
 const validatorService = {};
 
 class DataValidation {
+	hasValidator(inName) {
+		return !!validators[inName];
+	}
 	
 	withLocale(inLocale) {
 		this._locale = inLocale;
@@ -50,4 +54,4 @@ class DataValidation {
 
 }
 
-export {DataValidator};
+export {DataValidation};
